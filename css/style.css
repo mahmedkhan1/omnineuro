@@ -301,6 +301,11 @@ svg {
 .brand-logo {
   width: 36px;
   height: 36px;
+  /* The logo art has a white background; the rounded tile makes that
+     read as intentional on both the light header and the dark footer. */
+  border-radius: 8px;
+  object-fit: cover;
+  background: #fff;
 }
 
 /* --- Mobile hamburger button --- */
