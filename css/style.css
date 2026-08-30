@@ -299,13 +299,20 @@ svg {
 }
 
 .brand-logo {
-  width: 36px;
-  height: 36px;
-  /* The logo art has a white background; the rounded tile makes that
-     read as intentional on both the light header and the dark footer. */
-  border-radius: 8px;
-  object-fit: cover;
+  width: auto;
+  height: 52px;
+  /* The full logo lockup has a white background; the rounded white tile
+     makes that read as intentional on both the light header and the
+     dark footer. */
+  border-radius: 10px;
+  object-fit: contain;
   background: #fff;
+  padding: 4px 8px;
+}
+
+/* Footer sits on a dark ground — give the logo tile a touch more presence */
+.site-footer .brand-logo {
+  height: 56px;
 }
 
 /* --- Mobile hamburger button --- */
