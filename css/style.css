@@ -712,6 +712,43 @@ svg {
 
 
 /* ============================================================================
+   9b. VIDEO
+   Responsive 16:9 player. The .video-frame box holds the aspect ratio;
+   the <video> fills it. Works for any clip you drop in at the same path.
+   ========================================================================== */
+.video-frame {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin-inline: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #000;
+  box-shadow: var(--shadow-lg);
+}
+
+.video-frame video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  /* "contain" shows the whole frame (letterboxed if not 16:9);
+     switch to "cover" to fill and crop instead. */
+  object-fit: contain;
+  background: #000;
+}
+
+/* Fallback: browsers without aspect-ratio support still get a sane height */
+@supports not (aspect-ratio: 1) {
+  .video-frame {
+    height: 0;
+    padding-bottom: 56.25%;
+  }
+}
+
+
+/* ============================================================================
    10. STATS & TESTIMONIALS
    ========================================================================== */
 .stats {
