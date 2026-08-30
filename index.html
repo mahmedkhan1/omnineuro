@@ -1,8 +1,498 @@
 <!DOCTYPE html>
-<html>
-<head><title>OmniNeuro</title></head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ============================================================
+       SEO META
+       Edit the title/description below to tune search snippets.
+       ============================================================ -->
+  <title>OmniNeuro — Neurorehabilitation Technology That Helps Patients Recover</title>
+  <meta name="description" content="OmniNeuro builds evidence-based neurorehabilitation technology that helps people recover movement, cognition, and independence after neurological injury." />
+  <meta name="keywords" content="neurorehabilitation, neuro rehab technology, stroke recovery, brain injury rehabilitation, neuroplasticity, digital therapeutics" />
+  <meta name="author" content="OmniNeuro" />
+  <meta name="theme-color" content="#1E3A8A" />
+  <link rel="canonical" href="https://www.omnineuro.tech/" />
+
+  <!-- ============================================================
+       OPEN GRAPH / SOCIAL SHARING
+       Replace the og:image URL with a 1200x630 preview image when ready.
+       ============================================================ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="OmniNeuro" />
+  <meta property="og:title" content="OmniNeuro — Neurorehabilitation Technology" />
+  <meta property="og:description" content="Evidence-based neurorehabilitation technology that helps people recover movement, cognition, and independence." />
+  <meta property="og:url" content="https://www.omnineuro.tech/" />
+  <meta property="og:image" content="https://www.omnineuro.tech/assets/omnineuro-logo.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="OmniNeuro — Neurorehabilitation Technology" />
+  <meta name="twitter:description" content="Evidence-based neurorehabilitation technology that helps people recover movement, cognition, and independence." />
+  <meta name="twitter:image" content="https://www.omnineuro.tech/assets/omnineuro-logo.svg" />
+
+  <!-- ============================================================
+       FAVICON (uses the brand logo)
+       ============================================================ -->
+  <link rel="icon" type="image/svg+xml" href="assets/omnineuro-logo.svg" />
+  <link rel="apple-touch-icon" href="assets/omnineuro-logo.svg" />
+
+  <!-- ============================================================
+       FONTS + STYLES
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- ============================================================
+       STRUCTURED DATA (helps search engines understand the org)
+       ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "OmniNeuro",
+    "url": "https://www.omnineuro.tech/",
+    "logo": "https://www.omnineuro.tech/assets/omnineuro-logo.svg",
+    "description": "Neurorehabilitation technology company building evidence-based tools that help patients recover movement, cognition, and independence.",
+    "email": "hello@omnineuro.tech",
+    "sameAs": [
+      "https://www.linkedin.com/company/omnineuro",
+      "https://twitter.com/omnineuro"
+    ]
+  }
+  </script>
+</head>
+
 <body>
-<h1>Hello World</h1>
-<p>Welcome to omnineuro.tech</p>
+  <!-- Skip link for keyboard / screen-reader users -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ============================================================
+       STICKY HEADER
+       ============================================================ -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="OmniNeuro home">
+        <img class="brand-logo" src="assets/omnineuro-logo.svg" alt="" width="40" height="40" />
+        <span class="brand-name">OmniNeuro</span>
+      </a>
+
+      <!-- Mobile hamburger toggle -->
+      <button
+        class="nav-toggle"
+        id="navToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="primaryNav"
+      >
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <!-- Primary navigation -->
+      <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#technology">Technology</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#contact" class="nav-cta">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ==========================================================
+         HERO
+         ========================================================== -->
+    <section class="hero" id="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div class="hero-content reveal">
+          <p class="eyebrow">Neurorehabilitation, reimagined</p>
+          <h1 class="hero-title">
+            Helping the brain <span class="grad-text">rebuild</span> what injury took away
+          </h1>
+          <p class="hero-subtitle">
+            OmniNeuro pairs clinical neuroscience with adaptive technology so patients
+            recovering from stroke, brain injury, and neurological conditions can regain
+            movement, cognition, and independence — faster and with measurable progress.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Get Started</a>
+            <a href="#technology" class="btn btn-ghost">Explore the Technology</a>
+          </div>
+          <p class="hero-note">Trusted by rehabilitation clinics and research partners.</p>
+        </div>
+
+        <!-- Decorative hero panel with animated nodes -->
+        <div class="hero-panel reveal" aria-hidden="true">
+          <div class="pulse-node n1"></div>
+          <div class="pulse-node n2"></div>
+          <div class="pulse-node n3"></div>
+          <div class="pulse-node n4"></div>
+          <div class="pulse-ring"></div>
+          <img src="assets/omnineuro-logo.svg" alt="" class="hero-panel-logo" width="140" height="140" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         ABOUT
+         ========================================================== -->
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">About OmniNeuro</p>
+          <h2>Recovery guided by science, delivered with hope</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <h3>Our mission</h3>
+            <p>
+              To make high-quality neurorehabilitation accessible to every patient who
+              needs it — by turning the principles of neuroplasticity into practical,
+              engaging, data-driven therapy.
+            </p>
+
+            <h3>Our vision</h3>
+            <p>
+              A world where a neurological diagnosis is the start of a clear recovery
+              path, not the end of independence. We build the tools that make that
+              path visible, motivating, and effective.
+            </p>
+          </div>
+
+          <div class="about-diff reveal">
+            <h3>What makes our approach different</h3>
+            <ul class="check-list">
+              <li>
+                <strong>Adaptive by design.</strong> Therapy difficulty adjusts in real
+                time to each patient's performance, keeping them in the productive zone
+                of challenge.
+              </li>
+              <li>
+                <strong>Measurable outcomes.</strong> Every session generates clinician-ready
+                metrics on range, speed, accuracy, and endurance.
+              </li>
+              <li>
+                <strong>Clinic and home continuity.</strong> The same program follows the
+                patient from the clinic to home, so progress never stalls between visits.
+              </li>
+              <li>
+                <strong>Built with clinicians.</strong> Developed alongside physiatrists,
+                physical and occupational therapists, and rehabilitation researchers.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         TECHNOLOGY  (feature cards)
+         ========================================================== -->
+    <section class="section technology" id="technology">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Technology</p>
+          <h2>The core of the OmniNeuro platform</h2>
+          <p class="section-lead">
+            Four connected systems that work together to drive neuroplastic change
+            and give care teams a clear picture of recovery.
+          </p>
+        </div>
+
+        <div class="card-grid">
+          <!-- Card 1 -->
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <!-- brain / neuroplasticity -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 3a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 1 5 3 3 0 0 0 4 3 3 3 0 0 0 3-2V4a3 3 0 0 0-3-1Z"/>
+                <path d="M15 3a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-1 5 3 3 0 0 1-4 3 3 3 0 0 1-3-2"/>
+              </svg>
+            </div>
+            <h3>Adaptive Therapy Engine</h3>
+            <p>
+              A real-time algorithm tunes task difficulty, assistance, and pacing to each
+              patient's moment-to-moment ability — maximizing repetitions in the optimal
+              learning range.
+            </p>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <!-- motion sensing -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"/>
+              </svg>
+            </div>
+            <h3>Markerless Motion Capture</h3>
+            <p>
+              Standard cameras and wearable sensors track joint angles, tremor, and
+              coordination with clinical accuracy — no bulky lab equipment or attached
+              markers required.
+            </p>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <!-- analytics / outcomes -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 3v18h18"/>
+                <path d="M7 15l3-4 3 3 4-6"/>
+              </svg>
+            </div>
+            <h3>Outcomes Dashboard</h3>
+            <p>
+              Clinicians see longitudinal trends, standardized assessment scores, and
+              session adherence in one view — making it simple to adjust the plan and
+              document progress.
+            </p>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              <!-- engagement / games -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="6" width="20" height="12" rx="4"/>
+                <path d="M7 12h4M9 10v4M16 11h.01M19 13h.01"/>
+              </svg>
+            </div>
+            <h3>Engagement Layer</h3>
+            <p>
+              Therapy is delivered as motivating, game-like activities with clear goals
+              and feedback, so patients stay consistent through the long work of
+              recovery.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         PROGRAMS / SERVICES
+         ========================================================== -->
+    <section class="section programs" id="programs">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Programs &amp; Services</p>
+          <h2>Support at every stage of recovery</h2>
+          <p class="section-lead">
+            Flexible programs for patients, clinics, and research partners — use them
+            on their own or as one continuous pathway.
+          </p>
+        </div>
+
+        <div class="card-grid">
+          <article class="program-card reveal">
+            <h3>Clinic Program</h3>
+            <p>
+              A turnkey neurorehabilitation station for outpatient and inpatient
+              settings. Staff training, protocol library, and integration support
+              included.
+            </p>
+            <ul class="mini-list">
+              <li>Upper &amp; lower limb, balance, and cognitive modules</li>
+              <li>Clinician dashboard and progress reports</li>
+              <li>On-site setup and staff onboarding</li>
+            </ul>
+          </article>
+
+          <article class="program-card reveal">
+            <h3>Home Continuity</h3>
+            <p>
+              Patients continue the same prescribed program at home on a tablet, with
+              remote monitoring so the care team can adjust the plan between visits.
+            </p>
+            <ul class="mini-list">
+              <li>Prescribed sessions with reminders</li>
+              <li>Remote clinician oversight and messaging</li>
+              <li>Automatic safety flags and check-ins</li>
+            </ul>
+          </article>
+
+          <article class="program-card reveal">
+            <h3>Research Partnerships</h3>
+            <p>
+              Structured data exports, study configuration, and protocol customization
+              for academic and clinical research teams investigating recovery.
+            </p>
+            <ul class="mini-list">
+              <li>De-identified, standardized data sets</li>
+              <li>Configurable outcome measures</li>
+              <li>Co-authored publications and IRB support</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         STATS / TESTIMONIALS
+         Placeholder numbers and quotes — edit freely.
+         ========================================================== -->
+    <section class="section stats" id="stats" aria-label="Outcomes and testimonials">
+      <div class="container">
+        <div class="stats-grid reveal">
+          <div class="stat">
+            <span class="stat-number" data-count-to="38" data-suffix="%">0%</span>
+            <span class="stat-label">Average increase in therapy repetitions per session*</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" data-count-to="3" data-suffix="x">0x</span>
+            <span class="stat-label">More between-visit practice vs. paper home programs*</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" data-count-to="12" data-prefix="" data-suffix="k+">0</span>
+            <span class="stat-label">Guided rehabilitation sessions delivered*</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" data-count-to="94" data-suffix="%">0%</span>
+            <span class="stat-label">Patients report the program keeps them motivated*</span>
+          </div>
+        </div>
+
+        <div class="testimonials">
+          <figure class="quote reveal">
+            <blockquote>
+              "For the first time my patients can see their own progress week to week.
+              That feedback changes how hard they're willing to work."
+            </blockquote>
+            <figcaption>— Placeholder, PT, DPT · Outpatient Neuro Rehabilitation</figcaption>
+          </figure>
+
+          <figure class="quote reveal">
+            <blockquote>
+              "After my stroke I dreaded my home exercises. This actually gave me a
+              reason to show up every day — and I got my hand back."
+            </blockquote>
+            <figcaption>— Placeholder · Stroke survivor, 14 months post-event</figcaption>
+          </figure>
+        </div>
+
+        <p class="stats-disclaimer">*Placeholder figures for layout purposes. Replace with verified data before publishing.</p>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         CONTACT
+         Front-end only. Wire the form action to a service
+         (Formspree, Netlify Forms, etc.) when you have a backend.
+         ========================================================== -->
+    <section class="section contact" id="contact">
+      <div class="container contact-inner">
+        <div class="contact-info reveal">
+          <p class="eyebrow">Contact</p>
+          <h2>Let's talk about your patients</h2>
+          <p>
+            Whether you run a clinic, lead a research team, or are looking for a
+            recovery program for yourself or a family member, we'd like to hear from
+            you.
+          </p>
+
+          <ul class="contact-list">
+            <li>
+              <span class="contact-list-label">Email</span>
+              <a href="mailto:hello@omnineuro.tech">hello@omnineuro.tech</a>
+            </li>
+            <li>
+              <span class="contact-list-label">Phone</span>
+              <a href="tel:+10000000000">+1 (000) 000-0000</a>
+            </li>
+            <li>
+              <span class="contact-list-label">Location</span>
+              <span>Toronto, Ontario, Canada</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- The form does not submit anywhere yet. main.js shows a
+             friendly confirmation and prevents the default post. -->
+        <form class="contact-form reveal" id="contactForm" novalidate>
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" autocomplete="name" required />
+            <span class="field-error" data-error-for="name"></span>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required />
+            <span class="field-error" data-error-for="email"></span>
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <span class="field-error" data-error-for="message"></span>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Send message</button>
+
+          <!-- Screen-reader + visual status after submit -->
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a class="brand" href="#top" aria-label="OmniNeuro home">
+          <img src="assets/omnineuro-logo.svg" alt="" width="36" height="36" />
+          <span class="brand-name">OmniNeuro</span>
+        </a>
+        <p class="footer-tagline">Neurorehabilitation technology that helps patients recover.</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer">
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#technology">Technology</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-social">
+        <span class="footer-social-label">Follow</span>
+        <div class="social-icons">
+          <a href="#" aria-label="OmniNeuro on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1 0-5ZM3 9h4v12H3zM10 9h3.8v1.7h.05a4.17 4.17 0 0 1 3.75-2C21 8.7 22 11 22 14.2V21h-4v-6c0-1.4 0-3.3-2-3.3s-2.3 1.5-2.3 3.2V21h-4z"/></svg>
+          </a>
+          <a href="#" aria-label="OmniNeuro on X">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2H21.5l-7.5 8.57L22.5 22h-6.9l-5.4-7.06L3.9 22H.64l8.02-9.17L1.5 2h7.07l4.88 6.45L18.244 2Zm-1.21 18h1.8L7.05 3.9H5.12L17.034 20Z"/></svg>
+          </a>
+          <a href="#" aria-label="OmniNeuro on YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.8-1.8C19.2 5 12 5 12 5s-7.2 0-8.8.5A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.8 1.8C4.8 19 12 19 12 19s7.2 0 8.8-.5a2.5 2.5 0 0 0 1.8-1.8C23 15.2 23 12 23 12Zm-13 3V9l5.2 3Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year">2026</span> OmniNeuro. All rights reserved.</p>
+      <p class="footer-legal">
+        This website is for informational purposes and is not medical advice.
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
