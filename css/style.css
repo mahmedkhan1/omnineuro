@@ -78,7 +78,7 @@
 html {
   scroll-behavior: smooth;
   /* Offset anchor jumps so the sticky header doesn't cover section titles */
-  scroll-padding-top: 112px;
+  scroll-padding-top: 96px;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -280,7 +280,7 @@ svg {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 96px;
+  height: 80px;
 }
 
 .brand {
@@ -300,27 +300,25 @@ svg {
 
 .brand-logo {
   width: auto;
-  height: 78px;
-  /* The full logo lockup has a white background; the rounded white tile
-     makes that read as intentional on both the light header and the
-     dark footer. */
-  border-radius: 12px;
+  height: 52px;              /* wide horizontal lockup */
   object-fit: contain;
-  background: #fff;
-  padding: 5px 12px;
 }
 
-/* Footer sits on a dark ground — give the logo tile a touch more presence */
+/* Footer sits on a dark ground: the logo art has a light background,
+   so put it on a rounded white tile so it reads cleanly. */
 .site-footer .brand-logo {
-  height: 84px;
+  height: 46px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 8px 14px;
 }
 
 @media (max-width: 600px) {
   .header-inner {
-    height: 76px;
+    height: 66px;
   }
   .brand-logo {
-    height: 60px;
+    height: 40px;
   }
 }
 
