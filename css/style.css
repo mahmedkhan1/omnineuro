@@ -802,6 +802,99 @@ svg {
 
 
 /* ============================================================================
+   10b. LEADERSHIP
+   ========================================================================== */
+.leader-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.leader-card {
+  background: #fff;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  padding: 2rem 1.75rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition),
+    border-color var(--transition);
+}
+
+.leader-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: transparent;
+}
+
+/* Initials avatar — swap for an <img class="leader-avatar"> when you have photos */
+.leader-avatar {
+  display: grid;
+  place-items: center;
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  object-fit: cover;              /* used when it's an <img> */
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #fff;
+  background: var(--grad-accent);
+  letter-spacing: 0.02em;
+}
+
+.leader-name {
+  margin-bottom: 0.15rem;
+}
+
+.leader-role {
+  color: var(--color-ink-soft);
+  font-size: 0.92rem;
+  margin-bottom: 1rem;
+}
+
+.leader-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-primary);
+}
+
+.leader-link:hover {
+  color: var(--color-cyan);
+}
+
+.leader-link-icon {
+  font-size: 0.95em;
+  line-height: 1;
+}
+
+/* Visually hidden but available to screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (min-width: 620px) {
+  .leader-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* ============================================================================
    11. CONTACT & FORM
    ========================================================================== */
 .contact-inner {
