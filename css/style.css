@@ -304,8 +304,9 @@ svg {
   object-fit: contain;
 }
 
-/* Footer sits on a dark ground: the logo art has a light background,
-   so put it on a rounded white tile so it reads cleanly. */
+/* The logo PNG is transparent. On the light header it sits bare; on the
+   dark footer its navy elements would vanish, so back it with a rounded
+   white tile there. */
 .site-footer .brand-logo {
   height: 46px;
   background: #fff;
