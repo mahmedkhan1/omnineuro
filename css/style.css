@@ -24,12 +24,13 @@
    1. DESIGN TOKENS
    ========================================================================== */
 :root {
-  /* Brand palette */
-  --color-primary: #1E3A8A;        /* deep blue  */
+  /* Brand palette — matched to the logo (deep navy + teal) */
+  --color-primary: #1E3A8A;        /* logo deep navy */
   --color-primary-dark: #162a63;
-  --color-cyan: #06B6D4;           /* electric cyan */
-  --color-purple: #7C3AED;         /* accent gradient start */
-  --color-pink: #EC4899;           /* accent gradient end */
+  --color-cyan: #06B6D4;           /* logo cyan */
+  --color-teal: #0E7490;           /* accent gradient start (deep teal) */
+  --color-aqua: #22D3EE;           /* accent gradient end (bright aqua) */
+  --color-danger: #DC2626;         /* form errors only — not a brand colour */
 
   /* Neutrals */
   --color-navy: #0B1220;
@@ -41,7 +42,7 @@
   --color-bg-navy: #0B1220;
 
   /* Signature gradients */
-  --grad-accent: linear-gradient(120deg, var(--color-purple), var(--color-pink));
+  --grad-accent: linear-gradient(120deg, var(--color-teal), var(--color-aqua));
   --grad-brand: linear-gradient(120deg, var(--color-primary), var(--color-cyan));
   --grad-hero: linear-gradient(160deg, #0B1220 0%, #12235c 45%, #1E3A8A 100%);
 
@@ -473,7 +474,7 @@ svg {
   z-index: 1;
   pointer-events: none;
   background:
-    radial-gradient(40rem 40rem at 85% -10%, rgba(124, 58, 237, 0.40), transparent 60%),
+    radial-gradient(40rem 40rem at 85% -10%, rgba(30, 58, 138, 0.55), transparent 60%),
     radial-gradient(36rem 36rem at 5% 110%, rgba(6, 182, 212, 0.35), transparent 60%),
     linear-gradient(180deg, rgba(11, 18, 32, 0.72) 0%, rgba(11, 18, 32, 0.55) 45%, rgba(11, 18, 32, 0.80) 100%);
 }
@@ -939,12 +940,12 @@ svg {
 /* Invalid field state (set by main.js) */
 .field.has-error input,
 .field.has-error textarea {
-  border-color: var(--color-pink);
-  box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.12);
+  border-color: var(--color-danger);
+  box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.12);
 }
 
 .field-error {
-  color: #be185d;
+  color: var(--color-danger);
   font-size: 0.82rem;
   min-height: 1rem;
 }
@@ -960,7 +961,7 @@ svg {
 }
 
 .form-status.is-error {
-  color: #be185d;
+  color: var(--color-danger);
 }
 
 @media (min-width: 900px) {

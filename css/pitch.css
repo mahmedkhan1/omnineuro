@@ -8,10 +8,10 @@
 
 /* 1. TOKENS & RESET --------------------------------------------------------- */
 :root {
-  --blue: #1E3A8A;
-  --cyan: #06B6D4;
-  --purple: #7C3AED;
-  --pink: #EC4899;
+  --blue: #1E3A8A;      /* logo deep navy */
+  --cyan: #06B6D4;      /* logo cyan */
+  --teal: #0E7490;      /* accent gradient start */
+  --aqua: #22D3EE;      /* accent gradient end */
   --navy: #0B1220;
   --ink: #111827;
   --ink-soft: #4B5563;
@@ -19,7 +19,7 @@
   --bg: #FFFFFF;
   --bg-alt: #F5F8FC;
 
-  --grad-accent: linear-gradient(120deg, var(--purple), var(--pink));
+  --grad-accent: linear-gradient(120deg, var(--teal), var(--aqua));
   --grad-brand: linear-gradient(120deg, var(--blue), var(--cyan));
   --grad-dark: linear-gradient(160deg, #0B1220 0%, #12235c 55%, #1E3A8A 120%);
 
@@ -311,7 +311,7 @@ img { display: block; max-width: 100%; }
   color: #fff;
 }
 .tam-1 { background: linear-gradient(150deg, #1E3A8A, #2563eb); }
-.tam-2 { background: linear-gradient(150deg, #6d28d9, #7C3AED); }
+.tam-2 { background: linear-gradient(150deg, #0369A1, #0EA5B5); }
 .tam-3 { background: linear-gradient(150deg, #0e7490, #06B6D4); }
 .tam-k { display: block; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.85; }
 .tam-v { display: block; font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 1rem + 2.4vw, 2.1rem); margin: 0.3rem 0; }
