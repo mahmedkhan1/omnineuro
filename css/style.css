@@ -804,13 +804,6 @@ svg {
   font-size: 0.85rem;
 }
 
-.stats-disclaimer {
-  margin-top: 2rem;
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 0.8rem;
-  text-align: center;
-}
-
 @media (min-width: 720px) {
   .stats-grid {
     grid-template-columns: repeat(4, 1fr);
