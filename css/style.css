@@ -430,24 +430,87 @@ svg {
   color: #fff;
   background: var(--grad-hero);
   overflow: hidden;
-  padding-block: 4rem 4.5rem;
+  padding-block: 5.5rem 6rem;
+  min-height: min(88vh, 760px);
+  display: flex;
+  align-items: center;
 }
 
-/* Soft radial glows in the background */
+/* Background video sits behind everything in the hero */
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* fill the area, cropping as needed */
+  z-index: 0;
+}
+
+/* Dark scrim + brand tint over the video so text stays readable */
 .hero-bg {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(40rem 40rem at 85% -10%, rgba(124, 58, 237, 0.45), transparent 60%),
-    radial-gradient(36rem 36rem at 5% 110%, rgba(6, 182, 212, 0.40), transparent 60%);
+  z-index: 1;
   pointer-events: none;
+  background:
+    radial-gradient(40rem 40rem at 85% -10%, rgba(124, 58, 237, 0.40), transparent 60%),
+    radial-gradient(36rem 36rem at 5% 110%, rgba(6, 182, 212, 0.35), transparent 60%),
+    linear-gradient(180deg, rgba(11, 18, 32, 0.72) 0%, rgba(11, 18, 32, 0.55) 45%, rgba(11, 18, 32, 0.80) 100%);
 }
 
 .hero-inner {
   position: relative;
+  z-index: 2;
   display: grid;
   gap: 3rem;
+}
+
+/* Content column now sits alone over the video */
+.hero-content {
+  max-width: 42rem;
+}
+
+/* Sound on/off control for the background video */
+.hero-video-toggle {
+  position: absolute;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 3;
+  display: inline-flex;
   align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(11, 18, 32, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: background-color var(--transition), transform var(--transition);
+}
+
+.hero-video-toggle:hover {
+  background: rgba(11, 18, 32, 0.8);
+  transform: translateY(-1px);
+}
+
+/* Speaker icon before the label. Default (aria-pressed="false") = muted,
+   so the icon shows a slash; when pressed (sound on) it shows sound waves. */
+.hero-video-toggle::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M11 5 6 9H2v6h4l5 4z'/%3E%3Cline x1='22' y1='2' x2='2' y2='22' stroke='%23000' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M11 5 6 9H2v6h4l5 4z'/%3E%3Cline x1='22' y1='2' x2='2' y2='22' stroke='%23000' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.hero-video-toggle[aria-pressed="true"]::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M11 5 6 9H2v6h4l5 4z'/%3E%3Cpath fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' d='M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M11 5 6 9H2v6h4l5 4z'/%3E%3Cpath fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' d='M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13'/%3E%3C/svg%3E");
 }
 
 .eyebrow {
@@ -484,62 +547,13 @@ svg {
   font-size: 0.9rem;
 }
 
-/* --- Decorative animated panel --- */
-.hero-panel {
-  position: relative;
-  min-height: 320px;
-  border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  display: grid;
-  place-items: center;
-  backdrop-filter: blur(4px);
-}
-
-.hero-panel-logo {
-  width: 140px;
-  height: 140px;
-  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.35));
-}
-
-.pulse-ring {
-  position: absolute;
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  border: 2px solid rgba(125, 211, 252, 0.5);
-  animation: pulse-ring 3.2s ease-out infinite;
-}
-
-.pulse-node {
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--grad-accent);
-  box-shadow: 0 0 18px rgba(236, 72, 153, 0.7);
-  animation: float-node 5s ease-in-out infinite;
-}
-
-.pulse-node.n1 { top: 16%;  left: 18%; animation-delay: 0s;   }
-.pulse-node.n2 { top: 24%;  right: 14%; animation-delay: 0.8s; }
-.pulse-node.n3 { bottom: 20%; left: 22%; animation-delay: 1.6s; }
-.pulse-node.n4 { bottom: 16%; right: 20%; animation-delay: 2.4s; }
-
-@keyframes pulse-ring {
-  0%   { transform: scale(0.75); opacity: 0.9; }
-  70%  { transform: scale(1.35); opacity: 0;   }
-  100% { transform: scale(1.35); opacity: 0;   }
-}
-
-@keyframes float-node {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-14px); }
-}
-
-@media (min-width: 900px) {
-  .hero-inner {
-    grid-template-columns: 1.05fr 0.95fr;
+@media (max-width: 600px) {
+  /* Move the sound toggle to the top on small screens so it's not
+     hidden behind the CTA buttons */
+  .hero-video-toggle {
+    top: 1rem;
+    right: 1rem;
+    bottom: auto;
   }
 }
 
@@ -707,43 +721,6 @@ svg {
 @media (min-width: 900px) {
   .programs .card-grid {
     grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-
-/* ============================================================================
-   9b. VIDEO
-   Responsive 16:9 player. The .video-frame box holds the aspect ratio;
-   the <video> fills it. Works for any clip you drop in at the same path.
-   ========================================================================== */
-.video-frame {
-  position: relative;
-  width: 100%;
-  max-width: 900px;
-  margin-inline: auto;
-  aspect-ratio: 16 / 9;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: #000;
-  box-shadow: var(--shadow-lg);
-}
-
-.video-frame video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  /* "contain" shows the whole frame (letterboxed if not 16:9);
-     switch to "cover" to fill and crop instead. */
-  object-fit: contain;
-  background: #000;
-}
-
-/* Fallback: browsers without aspect-ratio support still get a sane height */
-@supports not (aspect-ratio: 1) {
-  .video-frame {
-    height: 0;
-    padding-bottom: 56.25%;
   }
 }
 

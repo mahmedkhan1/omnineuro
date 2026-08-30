@@ -8,6 +8,7 @@
      4. Animated stat counters
      5. Contact form validation + fake submit confirmation
      6. Footer year
+     7. Hero background video (sound toggle + reduced-motion pause)
    Everything degrades gracefully if JS is disabled.
    ========================================================================== */
 
@@ -257,5 +258,50 @@
   var yearEl = document.getElementById("year");
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
+  }
+
+
+  /* ==========================================================================
+     7. HERO BACKGROUND VIDEO
+     - Starts muted so browsers allow autoplay.
+     - The toggle button turns sound on/off.
+     - If the visitor prefers reduced motion, pause the video and show
+       its first frame instead of looping.
+     ========================================================================== */
+  var heroVideo = document.querySelector(".hero-video");
+  var heroVideoToggle = document.getElementById("heroVideoToggle");
+
+  if (heroVideo && prefersReducedMotion) {
+    heroVideo.removeAttribute("autoplay");
+    heroVideo.pause();
+  }
+
+  if (heroVideo && heroVideoToggle) {
+    var label = heroVideoToggle.querySelector(".hero-video-toggle-label");
+
+    function syncToggle() {
+      var soundOn = !heroVideo.muted;
+      heroVideoToggle.setAttribute("aria-pressed", String(soundOn));
+      heroVideoToggle.setAttribute(
+        "aria-label",
+        soundOn ? "Mute background video" : "Unmute background video"
+      );
+      if (label) label.textContent = soundOn ? "Sound on" : "Sound off";
+    }
+
+    heroVideoToggle.addEventListener("click", function () {
+      heroVideo.muted = !heroVideo.muted;
+      /* Unmuting may require kicking playback off again */
+      if (!heroVideo.muted && heroVideo.paused) {
+        heroVideo.play().catch(function () {
+          /* Autoplay with sound blocked — revert to muted */
+          heroVideo.muted = true;
+          syncToggle();
+        });
+      }
+      syncToggle();
+    });
+
+    syncToggle();
   }
 })();
