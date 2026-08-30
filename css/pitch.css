@@ -1,0 +1,442 @@
+/* ============================================================================
+   OmniNeuro — pitch.css  (investor deck, standalone page)
+   ----------------------------------------------------------------------------
+   1. Tokens & reset      2. Top bar & progress    3. Slide scaffold
+   4. Typography helpers  5. Slide-specific blocks 6. Footer
+   7. Scroll reveal       8. Responsive            9. Print (Save as PDF)
+   ========================================================================== */
+
+/* 1. TOKENS & RESET --------------------------------------------------------- */
+:root {
+  --blue: #1E3A8A;
+  --cyan: #06B6D4;
+  --purple: #7C3AED;
+  --pink: #EC4899;
+  --navy: #0B1220;
+  --ink: #111827;
+  --ink-soft: #4B5563;
+  --line: #E5E7EB;
+  --bg: #FFFFFF;
+  --bg-alt: #F5F8FC;
+
+  --grad-accent: linear-gradient(120deg, var(--purple), var(--pink));
+  --grad-brand: linear-gradient(120deg, var(--blue), var(--cyan));
+  --grad-dark: linear-gradient(160deg, #0B1220 0%, #12235c 55%, #1E3A8A 120%);
+
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-display: "Sora", var(--font-body);
+  --maxw: 980px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+  scroll-padding-top: 64px;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--blue); text-decoration: none; }
+a:hover { color: var(--cyan); }
+img { display: block; max-width: 100%; }
+
+:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; border-radius: 4px; }
+
+
+/* 2. TOP BAR & PROGRESS --------------------------------------------------- */
+.progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0;
+  background: var(--grad-accent);
+  z-index: 60;
+  transition: width 120ms linear;
+}
+
+.deck-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 60px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(1rem, 4vw, 2.5rem);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.deck-home img { height: 34px; width: auto; }
+
+.deck-bar-actions { display: flex; align-items: center; gap: 0.9rem; }
+
+.deck-tag {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.deck-print {
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #fff;
+  background: var(--grad-brand);
+  border: 0;
+  border-radius: 999px;
+  padding: 0.5rem 1.1rem;
+  cursor: pointer;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+.deck-print:hover { transform: translateY(-1px); box-shadow: 0 8px 20px -8px rgba(6,182,212,0.6); }
+
+
+/* 3. SLIDE SCAFFOLD ----------------------------------------------------------- */
+.deck { padding-top: 60px; }
+
+.slide {
+  scroll-snap-align: start;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(3.5rem, 9vw, 7rem) clamp(1.25rem, 6vw, 4rem);
+  border-bottom: 1px solid var(--line);
+}
+
+.slide-inner { width: 100%; max-width: var(--maxw); }
+
+/* Alternating themes */
+.slide-dark {
+  background: var(--grad-dark);
+  color: #fff;
+  border-bottom-color: transparent;
+}
+.slide-dark .eyebrow { color: #7dd3fc; }
+.slide-dark .muted { color: rgba(255,255,255,0.6); }
+
+.slide-cover {
+  background: var(--grad-dark);
+  color: #fff;
+  text-align: center;
+  border-bottom-color: transparent;
+  position: relative;
+}
+
+.slide-ask { background: var(--bg-alt); }
+
+
+/* 4. TYPOGRAPHY HELPERS ----------------------------------------------------- */
+.kicker {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #7dd3fc;
+  margin-bottom: 1.5rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 1rem;
+}
+
+.slide h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.9rem, 1rem + 3.6vw, 3rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.75rem;
+}
+
+.grad {
+  background: var(--grad-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.muted { color: var(--ink-soft); }
+
+/* Editable placeholder figures — find every `.tbd` and replace it */
+.tbd {
+  border-bottom: 2px dashed currentColor;
+  opacity: 0.92;
+  font-style: normal;
+  white-space: nowrap;
+}
+
+/* Bulleted point lists */
+.points { list-style: none; display: grid; gap: 0.9rem; max-width: 52rem; }
+.points li {
+  position: relative;
+  padding-left: 1.6rem;
+  font-size: 1.05rem;
+}
+.points li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.62em;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--cyan);
+}
+.points-2col { grid-template-columns: 1fr; }
+@media (min-width: 760px) { .points-2col { grid-template-columns: 1fr 1fr; gap: 1rem 2.5rem; } }
+
+
+/* 5. SLIDE-SPECIFIC BLOCKS ------------------------------------------------ */
+
+/* Cover */
+.cover-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.3rem, 1rem + 5vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin: 0 auto 1.4rem;
+  max-width: 16ch;
+}
+.cover-sub {
+  font-size: clamp(1.05rem, 0.9rem + 0.8vw, 1.35rem);
+  color: rgba(255,255,255,0.82);
+  max-width: 40rem;
+  margin: 0 auto 2.2rem;
+}
+.cover-sub strong { color: #fff; }
+.cover-meta {
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+.scroll-hint {
+  position: absolute;
+  bottom: 1.75rem; left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  animation: bob 2s ease-in-out infinite;
+}
+@keyframes bob { 0%,100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 6px); } }
+
+/* Problem — big stats */
+.stat-row {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+@media (min-width: 720px) { .stat-row { grid-template-columns: 1fr 1fr; gap: 2.5rem; } }
+.big-num {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.4rem, 1rem + 5vw, 3.6rem);
+  line-height: 1;
+  background: var(--grad-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.big-label { display: block; margin-top: 0.6rem; color: rgba(255,255,255,0.72); font-size: 0.98rem; }
+
+/* Solution grid */
+.sol-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  margin-bottom: 1.75rem;
+}
+@media (min-width: 720px) { .sol-grid { grid-template-columns: 1fr 1fr; } }
+.sol-card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.25rem 1.35rem;
+  background: #fff;
+}
+.sol-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--blue);
+  margin-bottom: 0.35rem;
+}
+.sol-card p { color: var(--ink-soft); font-size: 0.95rem; }
+.slide-dark .sol-card { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.14); }
+.slide-dark .sol-card h3 { color: #7dd3fc; }
+.slide-dark .sol-card p { color: rgba(255,255,255,0.75); }
+
+.sol-punch, .market-wedge, .runway {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+.runway { margin-top: 1.5rem; color: var(--ink-soft); }
+
+/* Market — TAM stack */
+.tam {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  margin-bottom: 1.75rem;
+}
+@media (min-width: 760px) { .tam { grid-template-columns: repeat(3, 1fr); } }
+.tam-ring {
+  border-radius: 16px;
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  color: #fff;
+}
+.tam-1 { background: linear-gradient(150deg, #1E3A8A, #2563eb); }
+.tam-2 { background: linear-gradient(150deg, #6d28d9, #7C3AED); }
+.tam-3 { background: linear-gradient(150deg, #0e7490, #06B6D4); }
+.tam-k { display: block; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.85; }
+.tam-v { display: block; font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 1rem + 2.4vw, 2.1rem); margin: 0.3rem 0; }
+.tam-d { display: block; font-size: 0.85rem; opacity: 0.9; }
+
+/* Business model */
+.model-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 760px) { .model-grid { grid-template-columns: repeat(3, 1fr); } }
+.model-card {
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.05);
+  border-radius: 14px;
+  padding: 1.25rem;
+}
+.model-tag {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #7dd3fc;
+  margin-bottom: 0.4rem;
+}
+.model-card p { color: rgba(255,255,255,0.78); font-size: 0.95rem; }
+
+/* Traction */
+.trax {
+  display: grid;
+  gap: 1.25rem 2rem;
+  grid-template-columns: 1fr;
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 620px) { .trax { grid-template-columns: 1fr 1fr; } }
+.trax-n {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 1rem + 3vw, 2.6rem);
+  line-height: 1;
+  color: var(--blue);
+}
+.trax-l { display: block; margin-top: 0.4rem; color: var(--ink-soft); font-size: 0.95rem; }
+
+/* Team */
+.team {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 640px) { .team { grid-template-columns: 1fr 1fr; } }
+.team-card {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 14px;
+  padding: 1.1rem;
+}
+.team-card img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.team-card figcaption { display: flex; flex-direction: column; gap: 0.15rem; }
+.team-card strong { font-family: var(--font-display); font-size: 1.02rem; }
+.team-card span { font-size: 0.9rem; color: rgba(255,255,255,0.85); }
+.team-card .muted { font-size: 0.82rem; }
+
+/* Close */
+.slide-close .cover-title { max-width: 20ch; }
+.close-contact { margin-top: 1.5rem; font-size: 1.05rem; display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+.close-contact a { color: #7dd3fc; }
+.close-contact a:hover { color: #fff; }
+
+
+/* 6. FOOTER ------------------------------------------------------------------- */
+.deck-foot {
+  background: var(--navy);
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  padding: 1.5rem 1.25rem;
+  font-size: 0.8rem;
+}
+
+
+/* 7. SCROLL REVEAL --------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+
+
+/* 8. RESPONSIVE ----------------------------------------------------------- */
+@media (max-width: 520px) {
+  .deck-tag { display: none; }
+  .slide { min-height: auto; padding-block: 4rem; }
+}
+
+
+/* 9. PRINT — "Save as PDF" ---------------------------------------------------- */
+@media print {
+  .deck-bar, .progress, .scroll-hint, .deck-print { display: none !important; }
+  html { scroll-snap-type: none; }
+  .deck { padding-top: 0; }
+  .slide {
+    min-height: auto;
+    page-break-after: always;
+    break-after: page;
+    border: 0;
+    padding: 2.5cm 2cm;
+  }
+  /* Flatten dark slides so they don't burn ink / need bg-graphics on */
+  .slide-dark, .slide-cover, .slide-ask {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  .slide-dark .eyebrow, .kicker, .slide-dark .sol-card h3, .close-contact a { color: var(--blue) !important; }
+  .big-num, .grad, .tam-v { -webkit-text-fill-color: currentColor; color: var(--blue) !important; background: none !important; }
+  .tam-ring { color: #000 !important; background: #fff !important; border: 1px solid #999; }
+  .sol-card, .model-card, .team-card { background: #fff !important; border: 1px solid #ccc !important; }
+  .slide-dark .sol-card p, .model-card p, .big-label, .team-card span { color: #333 !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  a { color: #000 !important; }
+}
