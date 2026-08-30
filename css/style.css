@@ -78,7 +78,7 @@
 html {
   scroll-behavior: smooth;
   /* Offset anchor jumps so the sticky header doesn't cover section titles */
-  scroll-padding-top: 84px;
+  scroll-padding-top: 112px;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -280,7 +280,7 @@ svg {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 68px;
+  height: 96px;
 }
 
 .brand {
@@ -300,19 +300,28 @@ svg {
 
 .brand-logo {
   width: auto;
-  height: 52px;
+  height: 78px;
   /* The full logo lockup has a white background; the rounded white tile
      makes that read as intentional on both the light header and the
      dark footer. */
-  border-radius: 10px;
+  border-radius: 12px;
   object-fit: contain;
   background: #fff;
-  padding: 4px 8px;
+  padding: 5px 12px;
 }
 
 /* Footer sits on a dark ground — give the logo tile a touch more presence */
 .site-footer .brand-logo {
-  height: 56px;
+  height: 84px;
+}
+
+@media (max-width: 600px) {
+  .header-inner {
+    height: 76px;
+  }
+  .brand-logo {
+    height: 60px;
+  }
 }
 
 /* --- Mobile hamburger button --- */
@@ -387,7 +396,7 @@ svg {
 @media (max-width: 860px) {
   .primary-nav {
     position: absolute;
-    top: 68px;
+    top: 100%;             /* sits directly under the header, whatever its height */
     left: 0;
     right: 0;
     background: #fff;
