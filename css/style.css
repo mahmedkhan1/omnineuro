@@ -490,49 +490,6 @@ svg {
   max-width: 42rem;
 }
 
-/* Sound on/off control for the background video */
-.hero-video-toggle {
-  position: absolute;
-  right: 1.25rem;
-  bottom: 1.25rem;
-  z-index: 3;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0.9rem;
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #fff;
-  background: rgba(11, 18, 32, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  border-radius: 999px;
-  cursor: pointer;
-  backdrop-filter: blur(6px);
-  transition: background-color var(--transition), transform var(--transition);
-}
-
-.hero-video-toggle:hover {
-  background: rgba(11, 18, 32, 0.8);
-  transform: translateY(-1px);
-}
-
-/* Speaker icon before the label. Default (aria-pressed="false") = muted,
-   so the icon shows a slash; when pressed (sound on) it shows sound waves. */
-.hero-video-toggle::before {
-  content: "";
-  width: 16px;
-  height: 16px;
-  background: #fff;
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M11 5 6 9H2v6h4l5 4z'/%3E%3Cline x1='22' y1='2' x2='2' y2='22' stroke='%23000' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat;
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M11 5 6 9H2v6h4l5 4z'/%3E%3Cline x1='22' y1='2' x2='2' y2='22' stroke='%23000' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat;
-}
-
-.hero-video-toggle[aria-pressed="true"]::before {
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M11 5 6 9H2v6h4l5 4z'/%3E%3Cpath fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' d='M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M11 5 6 9H2v6h4l5 4z'/%3E%3Cpath fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' d='M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13'/%3E%3C/svg%3E");
-}
-
 .eyebrow {
   /* Reuse eyebrow style but brighten it on the dark hero */
 }
@@ -565,16 +522,6 @@ svg {
 .hero-note {
   color: rgba(255, 255, 255, 0.6);
   font-size: 0.9rem;
-}
-
-@media (max-width: 600px) {
-  /* Move the sound toggle to the top on small screens so it's not
-     hidden behind the CTA buttons */
-  .hero-video-toggle {
-    top: 1rem;
-    right: 1rem;
-    bottom: auto;
-  }
 }
 
 
