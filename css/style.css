@@ -838,6 +838,7 @@ svg {
   margin: 0 auto 1rem;
   border-radius: 50%;
   object-fit: cover;              /* used when it's an <img> */
+  object-position: 50% 20%;      /* bias the crop toward the head */
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 1.6rem;
